@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BTL.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - LMS</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <%--HEADER--%>
+        <nav class="navbar navbar-expand-md sticky-top bg-body border-bottom">
+            <div class="container d-flex flex-wrap">
+                <ul class="nav me-auto">
+                    <li class="nav-item"><a href="/" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="/dashboard" class="nav-link link-body-emphasis px-2">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
+                    <li class="nav-item"><a href="/About" class="nav-link link-body-emphasis px-2">About</a></li>
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item"><a href="/Login" class="nav-link link-body-emphasis px-2">Login</a></li>
+                    <li class="nav-item"><a href="/Signup" class="nav-link link-body-emphasis px-2">Sign up</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <%--MAIN--%>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <%--FOOTER--%>
+        <div class="border-top bg-body">
+            <footer class="container mt-5 pt-5">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="mb-3">
+                            <a href="/" class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" aria-label="Learning Management System">
+                                <img src="/favicon.ico" width="40" height="40" class="d-block me-2" />
+                                <span class="fs-5">Learning Management System</span>
+                            </a>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2">Điện thoại: <a href="#">0987654321</a></li>
+                                <li class="mb-2">Email: <a href="#">abc@gmail.com</a></li>
+                                <li class="mb-2">Địa chỉ: 96 Định Công, Hoàng Mai, Hà Nội</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-2 mb-3">
+                    </div>
+
+                    <div class="col-6 col-md-2 mb-3">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="mb-3">
+                            <h4>CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC ABCXYZ</h4>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><b>Ngày thành lập:</b> 01/01/2024</li>
+                                <li class="mb-2"><b>Lĩnh vực hoạt động:</b> Giáo dục, công nghệ - lập trình. Chúng tôi tập trung xây dựng và phát triển các sản phẩm mang lại giá trị cho cộng đồng lập trình viên Việt Nam.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>&copy; <%: DateTime.Now.Year %> - Learning Management System</p>
+                    <ul class="list-unstyled d-flex">
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-youtube"></i></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
